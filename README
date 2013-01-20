@@ -1,9 +1,9 @@
 libdeamonizer
 =============
 
-A lightweight library to easily create daemon in C++
+A lightweight library to easily create daemon in C++.
 
-You deamon should simply inherit `daemon_t` and put it's starting point in the `run` method.
+You deamon should simply inherit `daemon_t` and put it's starting point in the `run` method. You can get the log object from your daemon, and anything you write to it will be send to syslog.
 
 An example main could look like:
 
