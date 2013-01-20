@@ -2243,6 +2243,7 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
 
+
 ac_ext=cpp
 ac_cpp='$CXXCPP $CPPFLAGS'
 ac_compile='$CXX -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext >&5'
@@ -7416,6 +7417,10 @@ _lt_linker_boilerplate=`cat conftest.err`
 $RM -r conftest*
 
 
+## CAVEAT EMPTOR:
+## There is no encapsulation within the following macros, do not change
+## the running order or otherwise move them around unless you know exactly
+## what you are doing...
 if test -n "$compiler"; then
 
 lt_prog_compiler_no_builtin_flag=
@@ -14144,41 +14149,7 @@ ac_compiler_gnu=$ac_cv_cxx_compiler_gnu
 
 
 
-# ============================================================================
-#  http://www.gnu.org/software/autoconf-archive/ax_cxx_compile_stdcxx_11.html
-# ============================================================================
-#
-# SYNOPSIS
-#
-#   AX_CXX_COMPILE_STDCXX_11([ext|noext])
-#
-# DESCRIPTION
-#
-#   Check for baseline language coverage in the compiler for the C++11
-#   standard; if necessary, add switches to CXXFLAGS to enable support.
-#   Errors out if no mode that supports C++11 baseline syntax can be found.
-#   The argument, if specified, indicates whether you insist on an extended
-#   mode (e.g. -std=gnu++11) or a strict conformance mode (e.g. -std=c++11).
-#   If neither is specified, you get whatever works, with preference for an
-#   extended mode.
-#
-# LICENSE
-#
-#   Copyright (c) 2008 Benjamin Kosnik <bkoz@redhat.com>
-#   Copyright (c) 2012 Zack Weinberg <zackw@panix.com>
-#
-#   Copying and distribution of this file, with or without modification, are
-#   permitted in any medium without royalty provided the copyright notice
-#   and this notice are preserved. This file is offered as-is, without any
-#   warranty.
-
-#serial 1
-
-
-
-
-
-
+#m4_include([m4/ax_cxx_compile_stdcxx_11.m4])
       ac_success=no
   { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether $CXX supports C++11 features by default" >&5
 $as_echo_n "checking whether $CXX supports C++11 features by default... " >&6; }
