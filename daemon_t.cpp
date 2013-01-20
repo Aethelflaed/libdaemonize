@@ -8,13 +8,13 @@
 #include "daemon_t.hpp"
 
 daemon_t::daemon_t()
-	:log(nullptr)
+	:log(0)
 {
 }
 
 daemon_t::~daemon_t()
 {
-	if (log != nullptr)
+	if (log != 0)
 	{
 		log->info("Destructing daemon base class");
 	}
