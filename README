@@ -2,3 +2,28 @@ libdeamonizer
 =============
 
 A lightweight library to easily create daemon in C++
+
+You deamon should simply inherit `daemon_t` and put it's starting point in the `run` method.
+
+An example main could look like:
+
+```c++
+int main(int argc, const char** argv)
+{
+  try
+	{
+		my_daemon d;
+		daemonizer daemon("my_daemon", &d);
+	}
+	catch(int status)
+	{
+		return status;
+	}
+	catch(...)
+	{
+		return EXIT_FAILURE;
+	}
+
+	return EXIT_SUCCESS;
+}
+```
