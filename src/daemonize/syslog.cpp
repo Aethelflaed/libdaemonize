@@ -19,7 +19,8 @@ syslog::syslog(const char* identity,
 			   int facility,
 			   int priority_mask,
 			   int priority)
-	:logger(&buffer)
+	:buffer(),
+	 logger(&buffer)
 {
 	buffer.identity(identity);
 	buffer.options(options);
@@ -95,7 +96,7 @@ int syslogbuf::sync()
 	if (std::stringbuf::sync() == -1)
 		return -1;
 
-	if (reopen && last == this)
+	if (reopen || last == this)
 	{
 		::setlogmask(_priority_mask);
 		::openlog(_identity, _options, _facility);
