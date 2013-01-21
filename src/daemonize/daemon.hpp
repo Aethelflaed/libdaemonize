@@ -15,16 +15,15 @@ namespace daemonize
 	class daemon
 	{
 		public:
-			daemon();
+			daemon(daemonize::logger& log);
 			virtual ~daemon();
 
 			virtual void run() = 0;
 
-			daemonize::logger* get_log();
-			void set_log(daemonize::logger* log);
+			daemonize::logger& get_log();
 
 		protected:
-			daemonize::logger* log;
+			daemonize::logger& log;
 	};
 }
 

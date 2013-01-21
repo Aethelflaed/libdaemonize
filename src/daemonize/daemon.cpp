@@ -9,26 +9,18 @@
 
 using namespace daemonize;
 
-daemon::daemon()
-	:log(0)
+daemon::daemon(logger& log)
+	:log(log)
 {
 }
 
 daemon::~daemon()
 {
-	if (log != 0)
-	{
-		log->info("Destructing daemon base class");
-	}
+	log << logger::notice << "Destructing daemon base class" << std::endl;
 }
 
-logger* daemon::get_log()
+logger& daemon::get_log()
 {
-	return this->log;
-}
-
-void daemon::set_log(logger* log)
-{
-	this->log = log;
+	return log;
 }
 

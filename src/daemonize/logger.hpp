@@ -8,40 +8,48 @@
 #ifndef __DAEMONIZE_LOGGER_HPP
 #define __DAEMONIZE_LOGGER_HPP
 
-// This activates vsyslog in syslog.h
-#ifndef __USE_BSD
-#	define __USE_BSD
-#endif
-
-#include <syslog.h>
+#include <ostream>
 
 namespace daemonize
 {
-	class logger
+	class logger : public std::ostream
 	{
 		public:
-			logger(const char* identity,
-					int logmask = 0,
-					int option = LOG_CONS | LOG_PID | LOG_NDELAY,
-					int facility = LOG_LOCAL0);
+			logger(std::streambuf* buf);
 			virtual ~logger();
 
-			void emerge(const char* message, ...) const
-				__attribute__((__format__(__printf__, 2, 3)));
-			void alert(const char* message, ...) const
-				__attribute__((__format__(__printf__, 2, 3)));
-			void critical(const char* message, ...) const
-				__attribute__((__format__(__printf__, 2, 3)));
-			void error(const char* message, ...) const
-				__attribute__((__format__(__printf__, 2, 3)));
-			void warning(const char* message, ...) const
-				__attribute__((__format__(__printf__, 2, 3)));
-			void notice(const char* message, ...) const
-				__attribute__((__format__(__printf__, 2, 3)));
-			void info(const char* message, ...) const
-				__attribute__((__format__(__printf__, 2, 3)));
-			void debug(const char* message, ...) const
-				__attribute__((__format__(__printf__, 2, 3)));
+			// must sync()
+			virtual bool log() = 0;
+
+			virtual int priority();
+			virtual void priority(int prio);
+
+
+			struct priority_t
+			{
+				public:
+					priority_t(int prio);
+
+					int _priority;
+			};
+
+			// Values for priority defined in logger.cpp
+			// are taken from syslog.h
+			// You can updated these values if you use another
+			// log system.
+			static priority_t emerge;
+			static priority_t alert;
+			static priority_t critical;
+			static priority_t error;
+			static priority_t warning;
+			static priority_t notice;
+			static priority_t info;
+			static priority_t debug;
+
+			logger& operator<<(priority_t prio);
+
+		private:
+			int _priority;
 	};
 }
 

@@ -13,15 +13,7 @@
 
 namespace daemonize
 {
-	class daemonizer
-	{
-		public:
-			daemonizer(const char* identity, daemonize::daemon& daemon);
-			~daemonizer();
-
-		private:
-			daemonize::logger log;
-	};
+	void daemonizer(daemonize::daemon& daemon);
 }
 
 #endif /* __DAEMONIZE_DAEMONIZER_HPP */

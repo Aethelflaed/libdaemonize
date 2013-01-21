@@ -15,73 +15,63 @@
 #include <fcntl.h>
 #include <errno.h>
 
-using namespace daemonize;
-
-daemonizer::daemonizer(const char* name, daemon& daemon)
-	:log(name)
+void daemonize::daemonizer(daemonize::daemon& daemon)
 {
-	log.notice("Starting...");
+	daemon.get_log() << logger::notice << "Starting..." << std::endl;
 
 	/* Fork off the parent process */
 	pid_t pid = fork();	// child process get 0 as return value
 	if (pid < 0)
 	{
-		log.error("Unable to fork off the parent process: %m");
+		daemon.get_log() << logger::error << "Unable to fork off the parent process: %m" << std::endl;
 		throw EXIT_FAILURE;
 	}
 	/* If we got a good PID, then
 	 * we can exit the parent process. */
 	if (pid > 0)
 	{
-		log.debug("Exiting parent process");
+		daemon.get_log() << logger::debug << "Exiting parent process" << std::endl;
 		throw EXIT_SUCCESS;
 	}
 
-	log.debug("Change file mode umask to 0");
+	daemon.get_log() << logger::debug << "Change file mode umask to 0" << std::endl;
 	umask(0);
 
-	log.debug("Create a new SID for the child process");
+	daemon.get_log() << logger::debug << "Create a new SID for the child process" << std::endl;
 	pid_t sid = setsid();
 	if (sid < 0)
 	{
-		log.error("Unable to create a new SID for the child process: %m");
+		daemon.get_log() << logger::error << "Unable to create a new SID for the child process: %m" << std::endl;
 		throw EXIT_FAILURE;
 	}
 
-	log.debug("Change current working directory");
+	daemon.get_log() << logger::debug << "Change current working directory" << std::endl;
 	if ((chdir("/")) < 0)
 	{
-		log.error("Unable to change the current working directory: %m");
+		daemon.get_log() << logger::error << "Unable to change the current working directory: %m" << std::endl;
 		throw EXIT_FAILURE;
 	}
 
-	log.debug("Closing standard file descriptor STDIN");
+	daemon.get_log() << logger::debug << "Closing standard file descriptor STDIN" << std::endl;
 	if (close(STDIN_FILENO) < 0)
 	{
-		log.error("Unable to close standard file descriptor STDIN: %m");
+		daemon.get_log() << logger::error << "Unable to close standard file descriptor STDIN: %m" << std::endl;
 		throw EXIT_FAILURE;
 	}
-	log.debug("Closing standard file descriptor STDOUT");
+	daemon.get_log() << logger::debug << "Closing standard file descriptor STDOUT" << std::endl;
 	if (close(STDOUT_FILENO) < 0)
 	{
-		log.error("Unable to close standard file descriptor STDOUT: %m");
+		daemon.get_log() << logger::error << "Unable to close standard file descriptor STDOUT: %m" << std::endl;
 		throw EXIT_FAILURE;
 	}
-	log.debug("Closing standard file descriptor STDERR");
+	daemon.get_log() << logger::debug << "Closing standard file descriptor STDERR" << std::endl;
 	if (close(STDERR_FILENO) < 0)
 	{
-		log.error("Unable to close standard file descriptor STDERR: %m");
+		daemon.get_log() << logger::error << "Unable to close standard file descriptor STDERR: %m" << std::endl;
 		throw EXIT_FAILURE;
 	}
 
-	log.debug("Setting the daemon log");
-	daemon.set_log(&log);
-	log.notice("Launching daemon");
+	daemon.get_log() << logger::notice << "Launching daemon" << std::endl;
 	daemon.run();
-}
-
-daemonizer::~daemonizer()
-{
-	log.notice("Exiting...");
 }
 
