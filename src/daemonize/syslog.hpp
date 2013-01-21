@@ -56,7 +56,7 @@ namespace daemonize
 
 			bool reopen;
 			// Keep track of which object did logging last,
-			// and only run openning if needed.
+			// and only run opening if needed.
 			static syslogbuf* last;
 	};
 
