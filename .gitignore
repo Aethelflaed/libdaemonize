@@ -1,5 +1,8 @@
 # automake
 Makefile.in
+/config.sub
+/config.guess
+
 # autoconf
 /autom4te.cache
 /aclocal.m4
@@ -9,3 +12,5 @@ Makefile.in
 /install-sh
 /missing
 
+# libtool
+/ltmain.sh
