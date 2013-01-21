@@ -12,7 +12,7 @@ libdaemonize_1_0_la_LDFLAGS = -version-info $(LIBDAEMONIZE_VERSION)
 libdaemonize_1_0_la_CXXFLAGS = -I$(srcdir)/src
 libdaemonize_1_0_includedir = $(includedir)/libdaemonize-1.0/daemonize
 libdaemonize_1_0_include_HEADERS = \
-	src/daemonize/logger.cpp \
+	src/daemonize/logger.hpp \
 	src/daemonize/daemonizer.hpp \
 	src/daemonize/daemon.hpp \
 	src/daemonize/syslog.hpp
