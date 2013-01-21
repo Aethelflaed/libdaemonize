@@ -2,19 +2,15 @@
  * Logger
  * Author:		Geoffroy Planquart <geoffroy@aethelflaed.com>
  * Created:		January 19 2013
- * Last Change:	January 20 2013
+ * Last Change:	January 21 2013
  */
 
 #include "logger.hpp"
 #include <cstdarg>
 
-#ifndef __USE_BSD
-#	define __USE_BSD
-#endif
+using namespace daemonizer;
 
-#include <syslog.h>
-
-logger::logger(const char* identity)
+logger::logger(const char* identity, int logmask, int option, int facility)
 {
 	/* The setlogmask() function sets the log priority mask for the current
 	 * process to maskpri and returns the previous mask. If the maskpri
@@ -23,9 +19,9 @@ logger::logger(const char* identity)
 	 * rejected. The default log mask allows all priorities to be logged.
 	 * A call to openlog is not required prior to calling setlogmask().
 	 */
-	setlogmask(0);
+	setlogmask(logmask);
 
-	openlog(identity, LOG_CONS | LOG_PID | LOG_NDELAY, LOG_LOCAL0);
+	openlog(identity, option, facility);
 
 	this->debug("Constructing logger");
 }
