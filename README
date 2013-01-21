@@ -1,9 +1,12 @@
-libdeamonizer
-=============
+# libdeamonizer
+
 
 A lightweight library to easily create daemon in C++.
 
-You deamon should simply inherit `daemon_t` and put it's starting point in the `run` method. You can get the log object from your daemon, and anything you write to it will be send to syslog.
+You deamon should simply inherit `daemonize::daemon` and put it's starting point in the `run` method.
+You can get the log object from your daemon, and anything you write to it will be send to syslog.
+
+## Usage
 
 An example main could look like:
 
@@ -30,3 +33,29 @@ int main(int argc, const char** argv)
 	return EXIT_SUCCESS;
 }
 ```
+
+## Installation
+
+Libdaemonize is still under development, so you'll need libtool, autoconf and automake to create the install script.
+
+```sh
+libtoolize
+aclocal
+autoconf
+automake --add-missing
+```
+
+Then configure, build and install the library:
+
+```sh
+./configure --prefix=/usr
+make
+make install
+```
+
+## ToDo
+
+- Handle `daemonize::logger` constructor parameters in `daemonizer` initialization.
+- Add stream behavior to logger (`operator<<`), with a configurable priority.
+- Handle signals
+- Write tests
