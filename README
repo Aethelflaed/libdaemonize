@@ -8,12 +8,15 @@ You deamon should simply inherit `daemon_t` and put it's starting point in the `
 An example main could look like:
 
 ```c++
+
+#include <libdaemonize/daemonizer.hpp>
+
 int main(int argc, const char** argv)
 {
   try
 	{
 		my_daemon d;
-		daemonizer daemon("my_daemon", &d);
+		daemonize::daemonizer daemon("my_daemon", d);
 	}
 	catch(int status)
 	{
