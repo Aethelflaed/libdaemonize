@@ -9,7 +9,7 @@ libdaemonize_1_0_la_SOURCES = \
 	src/daemonize/daemon.cpp \
 	src/daemonize/syslog.cpp
 libdaemonize_1_0_la_LDFLAGS = -version-info $(LIBDAEMONIZE_VERSION)
-libdaemonize_1_0_includedir = $(includedir)/libdaemonize-1.0/libdaemonize
+libdaemonize_1_0_includedir = $(includedir)/libdaemonize-1.0/daemonize
 libdaemonize_1_0_include_HEADERS = \
 	src/daemonize/logger.cpp \
 	src/daemonize/daemonizer.hpp \
