@@ -11,7 +11,7 @@
 #include <sstream>
 #include <ostream>
 
-#include "logger.hpp"
+#include <daemonize/logger.hpp>
 
 // This activates vsyslog in syslog.h
 #ifndef __USE_BSD

@@ -8,8 +8,8 @@
 #ifndef __DAEMONIZE_DAEMONIZER_HPP
 #define __DAEMONIZE_DAEMONIZER_HPP
 
-#include "logger.hpp"
-#include "daemon.hpp"
+#include <daemonize/logger.hpp>
+#include <daemonize/daemon.hpp>
 
 namespace daemonize
 {
