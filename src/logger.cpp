@@ -8,7 +8,7 @@
 #include "logger.hpp"
 #include <cstdarg>
 
-using namespace daemonizer;
+using namespace daemonize;
 
 logger::logger(const char* identity, int logmask, int option, int facility)
 {

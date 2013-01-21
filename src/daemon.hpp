@@ -5,29 +5,28 @@
  * Last Change:	January 21 2013
  */
 
-#ifndef __DAEMONIZER_DAEMON_HPP
-#define __DAEMONIZER_DAEMON_HPP
+#ifndef __DAEMONIZE_DAEMON_HPP
+#define __DAEMONIZE_DAEMON_HPP
 
 #include "logger.hpp"
 
-namespace daemonizer
+namespace daemonize
 {
-	class daemon_t
+	class daemon
 	{
 		public:
-			daemon_t();
-			virtual ~daemon_t();
+			daemon();
+			virtual ~daemon();
 
 			virtual void run() = 0;
 
-			daemonizer::logger* get_log();
-			void set_log(daemonizer::logger* log);
+			daemonize::logger* get_log();
+			void set_log(daemonize::logger* log);
 
 		protected:
-			daemonizer::logger* log;
-
+			daemonize::logger* log;
 	};
 }
 
-#endif /* __DAEMONIZER_DAEMON_HPP */
+#endif /* __DAEMONIZE_DAEMON_HPP */
 

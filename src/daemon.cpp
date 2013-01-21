@@ -7,14 +7,14 @@
 
 #include "daemon.hpp"
 
-using namespace daemonizer;
+using namespace daemonize;
 
-daemon_t::daemon_t()
+daemon::daemon()
 	:log(0)
 {
 }
 
-daemon_t::~daemon_t()
+daemon::~daemon()
 {
 	if (log != 0)
 	{
@@ -22,12 +22,12 @@ daemon_t::~daemon_t()
 	}
 }
 
-logger* daemon_t::get_log()
+logger* daemon::get_log()
 {
 	return this->log;
 }
 
-void daemon_t::set_log(logger* log)
+void daemon::set_log(logger* log)
 {
 	this->log = log;
 }

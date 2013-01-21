@@ -5,25 +5,25 @@
  * Last Change:	January 21 2013
  */
 
-#ifndef __DAEMONIZER_DAEMONIZER_HPP
-#define __DAEMONIZER_DAEMONIZER_HPP
+#ifndef __DAEMONIZE_DAEMONIZER_HPP
+#define __DAEMONIZE_DAEMONIZER_HPP
 
 #include "logger.hpp"
 #include "daemon.hpp"
 
-namespace daemonizer
+namespace daemonize
 {
 	class daemonizer
 	{
 		public:
-			daemonizer(const char* identity, daemonizer::daemon& daemon);
+			daemonizer(const char* identity, daemonize::daemon& daemon);
 			~daemonizer();
 
 		private:
-			daemonizer::logger log;
+			daemonize::logger log;
 	};
 }
 
-#endif /* __DAEMONIZER_DAEMONIZER_HPP */
+#endif /* __DAEMONIZE_DAEMONIZER_HPP */
 
 

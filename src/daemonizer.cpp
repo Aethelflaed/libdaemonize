@@ -15,9 +15,9 @@
 #include <fcntl.h>
 #include <errno.h>
 
-using namespace daemonizer;
+using namespace daemonize;
 
-daemonizer::daemonizer(const char* name, daemon_t& daemon)
+daemonizer::daemonizer(const char* name, daemon& daemon)
 	:log(name)
 {
 	log.notice("Starting...");

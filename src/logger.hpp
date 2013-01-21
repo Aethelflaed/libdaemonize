@@ -5,8 +5,8 @@
  * Last Change:	January 21 2013
  */
 
-#ifndef __DAEMONIZER_LOGGER_HPP
-#define __DAEMONIZER_LOGGER_HPP
+#ifndef __DAEMONIZE_LOGGER_HPP
+#define __DAEMONIZE_LOGGER_HPP
 
 // This activates vsyslog in syslog.h
 #ifndef __USE_BSD
@@ -15,7 +15,7 @@
 
 #include <syslog.h>
 
-namespace daemonizer
+namespace daemonize
 {
 	class logger
 	{
@@ -45,5 +45,5 @@ namespace daemonizer
 	};
 }
 
-#endif /* __DAEMONIZER_LOGGER_HPP */
+#endif /* __DAEMONIZE_LOGGER_HPP */
 
