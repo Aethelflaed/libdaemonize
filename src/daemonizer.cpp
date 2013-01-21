@@ -1,5 +1,5 @@
 /**
- * Daemonizer
+ * daemonizer
  * Author:		Geoffroy Planquart <geoffroy@aethelflaed.com>
  * Created:		January 20 2013
  * Last Change:	January 21 2013
@@ -14,6 +14,8 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <errno.h>
+
+using namespace daemonizer;
 
 daemonizer::daemonizer(const char* name, daemon_t& daemon)
 	:log(name)

@@ -1,5 +1,5 @@
 /**
- * Logger
+ * logger
  * Author:		Geoffroy Planquart <geoffroy@aethelflaed.com>
  * Created:		January 19 2013
  * Last Change:	January 21 2013

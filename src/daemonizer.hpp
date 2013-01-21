@@ -1,26 +1,29 @@
 /**
- * Daemonizer
+ * daemonizer
  * Author:		Geoffroy Planquart <geoffroy@aethelflaed.com>
  * Created:		January 20 2013
  * Last Change:	January 21 2013
  */
 
-#ifndef _DAEMONIZER_HPP
-#define _DAEMONIZER_HPP
+#ifndef __DAEMONIZER_DAEMONIZER_HPP
+#define __DAEMONIZER_DAEMONIZER_HPP
 
 #include "logger.hpp"
-#include "daemon_t.hpp"
+#include "daemon.hpp"
 
-class daemonizer
+namespace daemonizer
 {
-	public:
-		daemonizer(const char* name, daemon_t& daemon);
-		~daemonizer();
+	class daemonizer
+	{
+		public:
+			daemonizer(const char* identity, daemonizer::daemon& daemon);
+			~daemonizer();
 
-	private:
-		logger log;
-};
+		private:
+			daemonizer::logger log;
+	};
+}
 
-#endif /* _DAEMONIZER_HPP */
+#endif /* __DAEMONIZER_DAEMONIZER_HPP */
 
 

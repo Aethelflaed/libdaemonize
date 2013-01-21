@@ -1,12 +1,12 @@
 /**
- * Logger
+ * logger
  * Author:		Geoffroy Planquart <geoffroy@aethelflaed.com>
  * Created:		January 19 2013
  * Last Change:	January 21 2013
  */
 
-#ifndef _DAEMON_LOGGER_HPP
-#define _DAEMON_LOGGER_HPP
+#ifndef __DAEMONIZER_LOGGER_HPP
+#define __DAEMONIZER_LOGGER_HPP
 
 // This activates vsyslog in syslog.h
 #ifndef __USE_BSD
@@ -45,5 +45,5 @@ namespace daemonizer
 	};
 }
 
-#endif /* _DAEMON_LOGGER_HPP */
+#endif /* __DAEMONIZER_LOGGER_HPP */
 
