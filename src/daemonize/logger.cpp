@@ -42,3 +42,8 @@ void logger::priority(int opts)
 	_priority = opts;
 }
 
+logger::priority_t::priority_t(int prio)
+	:_priority(prio)
+{
+}
+
