@@ -1,4 +1,4 @@
-AC_INIT([libdaemonize], 1.0, [bug@aethelflaed.com], [libdaemonize], [libdaemonize.aethelflaed.com])
+AC_INIT([libdaemonize], 1.0.0, [bug@aethelflaed.com], [libdaemonize], [libdaemonize.aethelflaed.com])
 
 AC_CONFIG_MACRO_DIR([m4])
 
