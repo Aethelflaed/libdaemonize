@@ -96,9 +96,9 @@ am__uninstall_files_from_dir = { \
   }
 am__installdirs = "$(DESTDIR)$(libdir)"
 LTLIBRARIES = $(lib_LTLIBRARIES)
-libdaemonizer_la_LIBADD =
-am_libdaemonizer_la_OBJECTS = logger.lo daemonizer.lo daemon.lo
-libdaemonizer_la_OBJECTS = $(am_libdaemonizer_la_OBJECTS)
+libdaemonize_la_LIBADD =
+am_libdaemonize_la_OBJECTS = logger.lo daemonizer.lo daemon.lo
+libdaemonize_la_OBJECTS = $(am_libdaemonize_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
@@ -137,8 +137,8 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(libdaemonizer_la_SOURCES)
-DIST_SOURCES = $(libdaemonizer_la_SOURCES)
+SOURCES = $(libdaemonize_la_SOURCES)
+DIST_SOURCES = $(libdaemonize_la_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -302,8 +302,8 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 ACLOCAL_AMFLAGS = -I m4
-lib_LTLIBRARIES = libdaemonizer.la
-libdaemonizer_la_SOURCES = src/logger.cpp src/daemonizer.cpp src/daemon.cpp
+lib_LTLIBRARIES = libdaemonize.la
+libdaemonize_la_SOURCES = src/logger.cpp src/daemonizer.cpp src/daemon.cpp
 all: all-am
 
 .SUFFIXES:
@@ -377,8 +377,8 @@ clean-libLTLIBRARIES:
 	  echo rm -f $${locs}; \
 	  rm -f $${locs}; \
 	}
-libdaemonizer.la: $(libdaemonizer_la_OBJECTS) $(libdaemonizer_la_DEPENDENCIES) $(EXTRA_libdaemonizer_la_DEPENDENCIES) 
-	$(AM_V_CXXLD)$(CXXLINK) -rpath $(libdir) $(libdaemonizer_la_OBJECTS) $(libdaemonizer_la_LIBADD) $(LIBS)
+libdaemonize.la: $(libdaemonize_la_OBJECTS) $(libdaemonize_la_DEPENDENCIES) $(EXTRA_libdaemonize_la_DEPENDENCIES) 
+	$(AM_V_CXXLD)$(CXXLINK) -rpath $(libdir) $(libdaemonize_la_OBJECTS) $(libdaemonize_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)

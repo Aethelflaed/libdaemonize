@@ -1,4 +1,4 @@
-AC_INIT([libdaemonizer], 1.0)
+AC_INIT([libdaemonize], 1.0)
 AC_CONFIG_MACRO_DIR([m4])
 
 AC_LANG([C++])
