@@ -57,9 +57,9 @@ make install
 
 ## ToDo
 
-- Add stream behavior to logger (`operator<<`), with a configurable priority.
 - Handle signals
 - Write tests
 
 Already done:
+- Add stream behavior to logger (`operator<<`), with a configurable priority.
 - Handle `daemonize::logger` constructor parameters in `daemonizer` initialization.
