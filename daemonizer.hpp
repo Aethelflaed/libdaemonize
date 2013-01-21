@@ -2,7 +2,7 @@
  * Daemonizer
  * Author:		Geoffroy Planquart <geoffroy@aethelflaed.com>
  * Created:		January 20 2013
- * Last Change:	January 20 2013
+ * Last Change:	January 21 2013
  */
 
 #ifndef _DAEMONIZER_HPP
@@ -14,12 +14,11 @@
 class daemonizer
 {
 	public:
-		daemonizer(const char* name, daemon_t* daemon);
+		daemonizer(const char* name, daemon_t& daemon);
 		~daemonizer();
 
 	private:
 		logger log;
-		daemon_t* daemon;
 };
 
 #endif /* _DAEMONIZER_HPP */

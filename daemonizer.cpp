@@ -2,7 +2,7 @@
  * Daemonizer
  * Author:		Geoffroy Planquart <geoffroy@aethelflaed.com>
  * Created:		January 20 2013
- * Last Change:	January 20 2013
+ * Last Change:	January 21 2013
  */
 
 #include "daemonizer.hpp"
@@ -15,8 +15,8 @@
 #include <fcntl.h>
 #include <errno.h>
 
-daemonizer::daemonizer(const char* name, daemon_t* daemon)
-	:log(name), daemon(daemon)
+daemonizer::daemonizer(const char* name, daemon_t& daemon)
+	:log(name)
 {
 	log.notice("Starting...");
 
@@ -73,9 +73,9 @@ daemonizer::daemonizer(const char* name, daemon_t* daemon)
 	}
 
 	log.debug("Setting the daemon log");
-	this->daemon->set_log(&log);
+	daemon.set_log(&log);
 	log.notice("Launching daemon");
-	this->daemon->run();
+	daemon.run();
 }
 
 daemonizer::~daemonizer()
