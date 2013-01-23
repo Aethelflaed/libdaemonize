@@ -2,7 +2,7 @@
  * logger
  * Author:		Geoffroy Planquart <geoffroy@aethelflaed.com>
  * Created:		January 19 2013
- * Last Change:	January 21 2013
+ * Last Change:	January 23 2013
  */
 
 #include "logger.hpp"
@@ -25,6 +25,12 @@ logger::logger(std::streambuf* buf)
 
 logger::~logger()
 {
+	for (std::list<void(*)(logger*)>::iterator it = destruction_observers.begin();
+			it != destruction_observers.end();
+			it++)
+	{
+		(*it)(this);
+	}
 }
 
 logger& logger::operator<<(logger::priority_t prio)
@@ -45,5 +51,17 @@ void logger::priority(int opts)
 logger::priority_t::priority_t(int prio)
 	:_priority(prio)
 {
+}
+
+void logger::register_destruction_observer(void(*observer)(logger*))
+{
+	*this << debug << "call to register_destruction_observer: " << observer << std::endl;
+	this->destruction_observers.push_back(observer);
+}
+
+void logger::unregister_destruction_observer(void(*observer)(logger*))
+{
+	*this << debug << "call to unregister_destruction_observer: " << observer << std::endl;
+	this->destruction_observers.remove(observer);
 }
 
