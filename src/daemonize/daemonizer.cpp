@@ -2,7 +2,7 @@
  * daemonizer
  * Author:		Geoffroy Planquart <geoffroy@aethelflaed.com>
  * Created:		January 20 2013
- * Last Change:	January 21 2013
+ * Last Change:	January 30 2013
  */
 
 #include "daemonizer.hpp"
@@ -45,8 +45,8 @@ void daemonize::daemonizer(daemonize::daemon& daemon)
 		throw EXIT_FAILURE;
 	}
 
-	daemon.get_log() << logger::debug << "Change current working directory" << std::endl;
-	if ((chdir("/")) < 0)
+	daemon.get_log() << logger::debug << "Change current working directory to \"" << daemon.run_dir() << "\"" << std::endl;
+	if ((chdir(daemon.run_dir().c_str())) < 0)
 	{
 		daemon.get_log() << logger::error << "Unable to change the current working directory: %m" << std::endl;
 		throw EXIT_FAILURE;
@@ -70,6 +70,8 @@ void daemonize::daemonizer(daemonize::daemon& daemon)
 		daemon.get_log() << logger::error << "Unable to close standard file descriptor STDERR: %m" << std::endl;
 		throw EXIT_FAILURE;
 	}
+
+	daemon.get_pid();
 
 	daemon.get_log() << logger::notice << "Launching daemon" << std::endl;
 	daemon.run();
