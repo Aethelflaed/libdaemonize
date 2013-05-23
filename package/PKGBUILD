@@ -1,5 +1,5 @@
 # Maintainer: Geoffroy Planquart <geoffroy@aethelflaed.com>
-pkgname=libcppmounts
+pkgname=libdaemonize
 pkgver=1.0
 pkgrel=1
 pkgdesc="An open-source C++ library to list mounts"
