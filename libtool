@@ -2,7 +2,7 @@
 
 # libtool - Provide generalized library-building support services.
 # Generated automatically by config.status (libdaemonize) 1.0.0
-# Libtool was configured on host G-W530-Manjaro:
+# Libtool was configured on host w530.aethelflaed.com:
 # NOTE: Changes made to this file will be lost: look at ltmain.sh.
 #
 #   Copyright (C) 1996, 1997, 1998, 1999, 2000, 2001, 2003, 2004, 2005,
@@ -272,10 +272,10 @@ finish_eval=""
 hardcode_into_libs=yes
 
 # Compile-time system search path for libraries.
-sys_lib_search_path_spec="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.2 /usr/lib /lib "
+sys_lib_search_path_spec="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2 /usr/lib /lib "
 
 # Run-time system search path for libraries.
-sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/lib/libfakeroot /usr/lib32 /usr/local/lib /usr/local/lib /usr/lib/llvm "
+sys_lib_dlsearch_path_spec="/lib /usr/lib /usr/lib/libfakeroot /usr/lib32 "
 
 # Whether dlopen is supported.
 dlopen_support=unknown
@@ -10224,17 +10224,17 @@ file_list_spec=""
 hardcode_action=immediate
 
 # The directories searched by this compiler when creating a shared library.
-compiler_lib_search_dirs="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.2 /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.2/../../../../lib /lib/../lib /usr/lib/../lib /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.2/../../.."
+compiler_lib_search_dirs="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2 /usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../../../lib /lib/../lib /usr/lib/../lib /usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../.."
 
 # Dependencies to place before and after the objects being linked to
 # create a shared library.
-predep_objects="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.2/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.2/crtbeginS.o"
-postdep_objects="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.2/crtendS.o /usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.2/../../../../lib/crtn.o"
+predep_objects="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../../../lib/crti.o /usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/crtbeginS.o"
+postdep_objects="/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/crtendS.o /usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../../../lib/crtn.o"
 predeps=""
 postdeps="-lstdc++ -lm -lgcc_s -lc -lgcc_s"
 
 # The library search path used internally by the compiler when linking
 # a shared library.
-compiler_lib_search_path="-L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.2 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.2/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.7.2/../../.."
+compiler_lib_search_path="-L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2 -L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../../../lib -L/lib/../lib -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-unknown-linux-gnu/4.8.2/../../.."
 
 # ### END LIBTOOL TAG CONFIG: CXX
